@@ -5,14 +5,16 @@ import { BackgroundLayer } from './components/background-wrapper'
 import { PaddingWrapper } from './components/padding-wrapper'
 import { ButtonComponent } from './components/button'
 import { Navbar } from './components/navbar'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useIntersectionObserver } from './hook/observer-hook'
 import { useUserLocation } from './context/user-location'
+import { GalleryModal } from './components/GalleryModal' // Import komponen baru
 
 export default function Home () {    
-
     const refern = useRef(null)
     const userLoc = useUserLocation()
+    const [isGalleryOpen, setIsGalleryOpen] = useState(false) // State untuk modal
+
     const intercept = useIntersectionObserver({
         ref: refern, 
         option: {
@@ -24,25 +26,37 @@ export default function Home () {
     })
 
     return (
-        <BackgroundLayer className='' ref={refern}>
-            <PaddingWrapper>
-                <Navbar />
-                <div className='h-140 flex justify-center items-center flex-col'>
+        <>
+            <BackgroundLayer className='' ref={refern}>
+                <PaddingWrapper>
+                    <Navbar />
+                    <div className='h-140 flex justify-center items-center flex-col'>
                         <h1 className={cn(fontGroup.postNoBills, 'text-(--main-color) text-[5em] leading-20')}>
-                        EMPIRE OVERDRIVE</h1>
-                        <h3 className={cn(fontGroup.kodeMono('Medium'), 'text-(--main-whitecolor) text-[3em] m-0!')}>PROTOCOLS</h3>
+                            EMPIRE OVERDRIVE
+                        </h1>
+                        <h3 className={cn(fontGroup.kodeMono('Medium'), 'text-(--main-whitecolor) text-[3em] m-0!')}>
+                            PROTOCOLS
+                        </h3>
                         <div className='mt-7 w-48 flex flex-col gap-5'>
                             <ButtonComponent.MainButton className='w-full'>
                                 Join Us
                             </ButtonComponent.MainButton>
-                            <ButtonComponent.SecondaryButton className='w-full'>
+                            <ButtonComponent.SecondaryButton 
+                                className='w-full'
+                                onClick={() => setIsGalleryOpen(true)} // Tambahkan onClick
+                            >
                                 View project
                             </ButtonComponent.SecondaryButton>
                         </div>
-                </div>
-                
-            </PaddingWrapper>
-        </BackgroundLayer>
-        
+                    </div>
+                </PaddingWrapper>
+            </BackgroundLayer>
+
+            {/* Gallery Modal */}
+            <GalleryModal 
+                isOpen={isGalleryOpen} 
+                onClose={() => setIsGalleryOpen(false)} 
+            />
+        </>
     )
 }

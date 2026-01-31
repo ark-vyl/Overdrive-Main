@@ -5,7 +5,7 @@ import { UserLocationProvider } from "./context/user-location";
 
 
 export const metadata = {
-  title: 'Overdrive',
+  title: 'Overdrive Protocol',
   description: 'Ini deskripsi webnya',
   icons: {
     icon: '/iconweb.png'

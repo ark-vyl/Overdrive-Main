@@ -8,7 +8,7 @@ export function Navbar() {
     const navLinkList = [
       { link: "Home" },
       { link: "About" },
-      { link: "Contacs" },
+      { link: "Contacts" },
       { link: "Social media" },
     ];
 
