@@ -96,7 +96,9 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Overlay dengan glow merah */}
+      {/* ============================================================
+          SECTION: OVERLAY & BACKGROUND
+          ============================================================ */}
       <div 
         className="absolute inset-0 bg-black/90 backdrop-blur-sm"
         onClick={onClose}
@@ -105,10 +107,14 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
       {/* Glow effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 via-transparent to-transparent pointer-events-none" />
       
-      {/* Modal Container - Tema merah & hitam */}
+      {/* ============================================================
+          SECTION: MODAL MAIN CONTAINER
+          ============================================================ */}
       <div className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-xl bg-gradient-to-br from-black via-gray-900 to-black border border-gray-800 shadow-2xl z-10">
         
-        {/* Header dengan efek merah */}
+        {/* ============================================================
+            SECTION: MODAL HEADER
+            ============================================================ */}
         <div className="flex justify-between items-center p-6 border-b border-red-900/50 bg-gradient-to-r from-black to-red-950/20">
           <div>
             <h2 className={cn(fontGroup.kodeMono('Bold'), "text-3xl bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent")}>
@@ -129,8 +135,14 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
           </button>
         </div>
 
+        {/* ============================================================
+            SECTION: MODAL BODY (SIDEBAR & MAIN CONTENT)
+            ============================================================ */}
         <div className="flex flex-col lg:flex-row h-[calc(90vh-5rem)]">
-          {/* Project List Sidebar - Tema dark red */}
+          
+          {/* ------------------------------------------------------------
+              SUB-SECTION: PROJECT LIST SIDEBAR
+              ------------------------------------------------------------ */}
           <div className="lg:w-1/3 border-r border-red-900/30 overflow-y-auto bg-black/50 p-6">
             <h3 className={cn(fontGroup.kodeMono('SemiBold'), "text-xl text-red-400 mb-4")}>
               ACTIVE PROJECTS
@@ -181,7 +193,9 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
               ))}
             </div>
             
-            {/* Status Bar */}
+            {/* ------------------------------------------------------------
+                SUB-SECTION: SYSTEM STATUS BAR
+                ------------------------------------------------------------ */}
             <div className="mt-8 p-4 bg-black/50 rounded-lg border border-red-900/30">
               <div className="flex justify-between items-center mb-2">
                 <span className={cn(fontGroup.kodeMono('Medium'), "text-red-400 text-sm")}>
@@ -197,8 +211,11 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
             </div>
           </div>
 
-          {/* Main Gallery - Tema dark dengan aksen merah */}
+          {/* ------------------------------------------------------------
+              SUB-SECTION: MAIN GALLERY DISPLAY
+              ------------------------------------------------------------ */}
           <div className="lg:w-2/3 p-6 flex flex-col bg-gradient-to-b from-black to-gray-900">
+            
             {/* Project Title dengan efek neon */}
             <div className="mb-6 relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-transparent blur opacity-20"></div>
@@ -213,7 +230,8 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
             {/* Main Image Display dengan frame merah */}
             <div className="relative flex-1 rounded-lg overflow-hidden border-2 border-red-900/50 bg-black">
               <div className="relative w-full h-full">
-                {/* Main Image Display */}
+                
+                {/* Visual Display Container */}
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black">
                   {/* Grid pattern background */}
                   <div className="absolute inset-0 opacity-10" style={{
@@ -238,7 +256,7 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
                   </div>
                 </div>
                 
-                {/* Navigation Buttons - Styled merah */}
+                {/* Navigation Buttons */}
                 <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/80 hover:bg-red-900/80 border border-red-700/50 rounded-full flex items-center justify-center text-red-400 hover:text-white text-2xl transition-all hover:scale-110"
@@ -252,7 +270,7 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
                   ›
                 </button>
                 
-                {/* Corner accents */}
+                {/* Decorative Corner Accents */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-red-500"></div>
                 <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-red-500"></div>
                 <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-red-500"></div>
@@ -260,7 +278,7 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
               </div>
             </div>
 
-            {/* Image Thumbnails dengan tema merah */}
+            {/* Image Thumbnails Selection */}
             <div className="flex gap-3 mt-6 overflow-x-auto pb-2">
               {selectedProject.images.map((img, idx) => (
                 <button
@@ -297,7 +315,7 @@ export function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
               ))}
             </div>
 
-            {/* Bottom Controls */}
+            {/* Bottom Controls & Action Buttons */}
             <div className="mt-6 flex justify-between items-center border-t border-red-900/30 pt-4">
               <div className="flex items-center space-x-4">
                 <span className={cn(fontGroup.kodeMono('Medium'), "text-gray-400")}>
