@@ -13,7 +13,7 @@ export function Navbar() {
     ];
 
   return (
-    <div className={cn("flex justify-between")}>
+    <div className={cn("flex justify-between w-full")}>
       <h1 className={cn(fontGroup.kodeMono("Medium"), "text-(--main-color)")}>
         OVERDRIVE PROTOCOLS
       </h1>

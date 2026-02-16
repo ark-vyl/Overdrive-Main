@@ -8,7 +8,8 @@ import { Navbar } from './components/navbar'
 import { useRef, useState } from 'react'
 import { useIntersectionObserver } from './hook/observer-hook'
 import { useUserLocation } from './context/user-location'
-import { GalleryModal } from './components/GalleryModal' // Import komponen baru
+import { GalleryModal } from './components/GalleryModal'
+import { MemberSection } from './section/user-section'
 
 export default function Home () {    
     const refern = useRef(null)
@@ -30,7 +31,7 @@ export default function Home () {
             <BackgroundLayer className='' ref={refern}>
                 <PaddingWrapper>
                     <Navbar />
-                    <div className='h-140 flex justify-center items-center flex-col'>
+                    <div className='h-140 flex justify-center items-center flex-col w-full'>
                         <h1 className={cn(fontGroup.postNoBills, 'text-(--main-color) text-[5em] leading-20')}>
                             EMPIRE OVERDRIVE
                         </h1>
@@ -49,6 +50,7 @@ export default function Home () {
                             </ButtonComponent.SecondaryButton>
                         </div>
                     </div>
+                    <MemberSection />
                 </PaddingWrapper>
             </BackgroundLayer>
 
