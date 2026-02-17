@@ -2,7 +2,9 @@
 
 import { cn } from '@/app/utils/cn';
 import { fontGroup } from '@/app/utils/font-wrapper';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useUserLocation } from '../context/user-location';
+import { useIntersectionObserver } from '../hook/observer-hook';
 
 // Data dummy members - adapted for Overdrive Protocol theme
 const members = [
@@ -85,18 +87,26 @@ const members = [
 
 export function MemberSection() {
   const [selectedMember, setSelectedMember] = useState(members[0]);
+  const userLoc = useUserLocation()
+  const sectionRef = useRef(null)
+
+  useIntersectionObserver({
+    ref: sectionRef,
+    option: {
+      threshold: 0.5
+    },
+    isObserving: () => {
+      userLoc.setNavLocation('Member')
+    }
+  })
 
   return (
-    <section className="relative w-screen bg-black overflow-hidden py-12 px-4 md:px-8">
+    <section 
+      ref={sectionRef}
+      className="relative w-full bg-transoarent overflow-hidden py-12 px-4 md:px-8" 
+      id='member'
+    >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/10 via-black to-black pointer-events-none" />
-      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
-        backgroundImage: `linear-gradient(to right, #333 1px, transparent 1px),
-                         linear-gradient(to bottom, #333 1px, transparent 1px)`,
-        backgroundSize: '40px 40px'
-      }}></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-12 border-b border-red-900/30 pb-6 flex flex-col md:flex-row justify-between items-end">
           <div>
@@ -300,7 +310,6 @@ export function MemberSection() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

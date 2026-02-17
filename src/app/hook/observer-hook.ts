@@ -1,4 +1,4 @@
-"use effect"
+"use client"
 import { RefObject, useEffect, useState } from "react"
 
 interface IntersectionScheme {

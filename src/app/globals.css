@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+* {
+    scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .animate-wave {
+    animation: wave 10s linear infinite;
+  }
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 @layer base {
     :root {
         --main-color: #FF3F3F;

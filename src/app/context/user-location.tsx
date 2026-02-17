@@ -1,7 +1,7 @@
 "use client"
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react"
 
-type LocationList = 'Home' | 'About'
+type LocationList = 'Home' | 'Member'
 
 interface UserLocationScheme {
     navLocation: string
@@ -21,5 +21,8 @@ export const UserLocationProvider = ({children}: {children: ReactNode}) => {
 
 export const useUserLocation = () => {
     const func = useContext(UserLocation)
+    if (!func) {
+        throw new Error('useUserLocation must be used within a UserLocationProvider')
+    }
     return func
 }
