@@ -11,8 +11,8 @@ const members = [
   {
     id: "OP-01",
     name: "KEVICO",
-    role: "Lead Architect",
-    clearance: "Level 5",
+    role: "Supreme Leader",
+    clearance: "Level A",
     status: "Active",
     specialty: "System Core",
     stats: {
@@ -25,9 +25,9 @@ const members = [
   },
   {
     id: "OP-02",
-    name: "AMMAAR",
-    role: "Web developer",
-    clearance: "Level 4",
+    name: "AMMARR",
+    role: "Deputy",
+    clearance: "Level A",
     status: "Active",
     specialty: "Penetration Testing",
     stats: {
@@ -40,40 +40,40 @@ const members = [
   },
   {
     id: "OP-03",
-    name: "LEON",
-    role: "Network Ops",
-    clearance: "Level 4",
-    status: "Mission",
-    specialty: "Traffic Analysis",
+    name: "BRIAN",
+    role: "Treasurer",
+    clearance: "Level A",
+    status: "Active",
+    specialty: "Finance Ops",
     stats: {
       coding: 80,
       security: 85,
       stealth: 98,
       operations: 90
     },
-    bio: "Monitors global network traffic for the protocol. Can trace any signal back to its source within seconds."
+    bio: "Master of financial protocols and resource allocation within the network."
   },
   {
     id: "OP-04",
-    name: "CIPHER",
-    role: "Cryptographer",
-    clearance: "Level 4",
+    name: "LEON",
+    role: "Treasurer",
+    clearance: "Level A",
     status: "Active",
-    specialty: "Encryption",
+    specialty: "Finance Ops",
     stats: {
       coding: 95,
       security: 90,
       stealth: 80,
       operations: 75
     },
-    bio: "Master of encryption algorithms. Ensures that Overdrive's data remains inaccessible to unauthorized entities."
+    bio: "Ensures the stability of the protocol's economic assets and cryptographic ledger."
   },
   {
     id: "OP-05",
-    name: "ECHO",
-    role: "Recruit",
-    clearance: "Level 2",
-    status: "Training",
+    name: "AMMARR",
+    role: "Web Developer",
+    clearance: "Level B",
+    status: "Active",
     specialty: "Frontend",
     stats: {
       coding: 75,
@@ -81,7 +81,22 @@ const members = [
       stealth: 50,
       operations: 65
     },
-    bio: "New recruit showing promise in interface design and user experience optimization."
+    bio: "Expert in interface design and user experience optimization for the protocol's web interfaces."
+  },
+  {
+    id: "OP-06",
+    name: "LOU",
+    role: "Social Media Operator",
+    clearance: "Level B",
+    status: "Active",
+    specialty: "Media Relations",
+    stats: {
+      coding: 60,
+      security: 70,
+      stealth: 85,
+      operations: 75
+    },
+    bio: "Manages the protocol's external presence and information flow across social networks."
   }
 ];
 
